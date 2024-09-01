@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitoring of Ration Food - Products</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body {
+    background-image: url('https://thumbs.dreamstime.com/b/empty-wooden-photo-frame-farm-background-empty-wooden-photo-frame-paddy-farm-background-111650526.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    height: 100vh;
+  }
+  .card {
+    background-color: rgba(83, 88, 12, 0.7);
+    transition: all 0.3s ease;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+  .card-glow {
+    border: 2px solid white;
+    box-shadow: 0 0 15px white;
+  }
+  .nav-link.active {
+    font-weight: bold;
+    color: #fff !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Products</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboard</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="products.html">Products <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="repor.html">Reports</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="admi.html">Admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login.html">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- Main Content -->
+<div class="container mt-4">
+  <h2 class="text-center">Products</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <div class="card text-center product-card">
+        <div class="card-body">
+          <h5 class="card-title">Rice</h5>
+          <img src="http://pluspng.com/img-png/sack-of-rice-png-a-2000.jpg" alt="Rice" class="img-fluid mb-3">
+          <img src="ricee.png" alt="Rice" class="img-fluid mb-3">
+          <p class="card-text">RF-ID: 9347979</p>
+          <p class="card-text">KG/Price: 50Rs</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center product-card">
+        <div class="card-body">
+          <h5 class="card-title">Wheat</h5>
+          <img src="https://5.imimg.com/data5/WJ/NY/MY-4507063/whole-wheat-flour-500x500.jpg" alt="Wheat" class="img-fluid mb-3">
+          <img src="wheat.png" alt="wheat" class="img-fluid mb-3">
+          <p class="card-text">RF-ID: 7013734</p>
+          <p class="card-text">KG/Price: 40Rs</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center product-card">
+        <div class="card-body">
+          <h5 class="card-title">Sugar</h5>
+          <img src="https://tse1.mm.bing.net/th?id=OIP.-BzF8vDgGIrGYLPZ4Wk1PwHaIN&pid=Api&P=0&h=220" alt="Sugar" class="img-fluid mb-3">
+          <img src="sugar.png" alt="sugar" class="img-fluid mb-3">
+          <p class="card-text">RF-ID: 7349510</p>
+          <p class="card-text">KG/Price: 30Rs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="footer mt-4">
+  <div class="container text-center">
+    <span class="text-muted">&copy; Monitoring of Ration food in PDS</span>
+  </div>
+</footer>
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Custom Script -->
+<script>
+  document.querySelectorAll('.product-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.product-card').forEach(c => c.classList.remove('card-glow'));
+      card.classList.add('card-glow');
+    });
+  });
+</script>
+</body>
+</html>

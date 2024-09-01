@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitoring of Ration food - products</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Admin</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboard</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="products.html">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="repor.html">Reports</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="admi.html">Admin  <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login.html">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- Main Content -->
+<div class="container mt-4">
+  <h2>Products</h2>
+  <button class="btn btn-success mb-3" data-toggle="modal" data-target="#addProductModal">Add Product</button>
+  <div class="row" id="productList">
+    <!-- Existing Products will be listed here dynamically -->
+  </div>
+</div>
+
+<!-- Grant Modal -->
+<div class="modal fade" id="grantModal" tabindex="-1" aria-labelledby="grantModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="grantModalLabel">Grant Access</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Select address to grant access for <span id="product-name-grant"></span>:</p>
+        <select class="form-control" id="grantAddressSelect">
+          <option value="address1">Address 1</option>
+          <option value="address2">Address 2</option>
+          <option value="address3">Address 3</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="grantAccess()">Grant</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Revoke Modal -->
+<div class="modal fade" id="revokeModal" tabindex="-1" aria-labelledby="revokeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="revokeModalLabel">Revoke Access</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Select address to revoke access for <span id="product-name-revoke"></span>:</p>
+        <select class="form-control" id="revokeAddressSelect">
+          <option value="address1">Address 1</option>
+          <option value="address2">Address 2</option>
+          <option value="address3">Address 3</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="revokeAccess()">Revoke</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Product Modal -->
+<div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProductModalLabel">Add Product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="addProductForm">
+          <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text" class="form-control" id="productName" required>
+          </div>
+          <div class="form-group">
+            <label for="productPrice">Price per KG</label>
+            <input type="number" class="form-control" id="productPrice" required>
+          </div>
+          <div class="form-group">
+            <label for="productImage">Upload Product Image</label>
+            <input type="file" class="form-control-file" id="productImage" required>
+          </div>
+          <div class="form-group">
+            <label for="productBarcode">Upload Product Barcode</label>
+            <input type="file" class="form-control-file" id="productBarcode" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container text-center">
+    <span class="text-muted">&copy; Monitoring of Ration food in PDS</span>
+  </div>
+</footer>
+
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Custom Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', loadProducts);
+
+  function loadProducts() {
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const productList = document.getElementById('productList');
+    productList.innerHTML = '';
+    products.forEach((product, index) => {
+      const productCard = `
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">${product.name}</h5>
+              <p class="card-text">KG/Price: ${product.price} Rs</p>
+              <img src="${product.image}" alt="${product.name}" class="img-fluid mb-3">
+              <button class="btn btn-primary" data-toggle="modal" data-target="#grantModal" onclick="setProduct('${product.name}')">Grant</button>
+              <button class="btn btn-danger" data-toggle="modal" data-target="#revokeModal" onclick="setProduct('${product.name}')">Revoke</button>
+              <button class="btn btn-warning" onclick="deleteProduct(${index})">Delete</button>
+            </div>
+          </div>
+        </div>
+      `;
+      productList.innerHTML += productCard;
+    });
+  }
+
+  document.getElementById('addProductForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('productName').value;
+    const price = document.getElementById('productPrice').value;
+    const image = document.getElementById('productImage').files[0];
+    const barcode = document.getElementById('productBarcode').files[0];
+
+    if (name && price && image && barcode) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const products = JSON.parse(localStorage.getItem('products')) || [];
+        products.push({
+          name,
+          price,
+          image: e.target.result,
+          barcode: URL.createObjectURL(barcode)
+        });
+        localStorage.setItem('products', JSON.stringify(products));
+        loadProducts();
+        $('#addProductModal').modal('hide');
+        document.getElementById('addProductForm').reset();
+      };
+      reader.readAsDataURL(image);
+    } else {
+      alert('Please fill in all fields and upload both images.');
+    }
+  });
+
+  function deleteProduct(index) {
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+    products.splice(index, 1);
+    localStorage.setItem('products', JSON.stringify(products));
+    loadProducts();
+  }
+
+  function setProduct(productName) {
+    document.getElementById('product-name-grant').innerText = productName;
+    document.getElementById('product-name-revoke').innerText = productName;
+  }
+
+  function grantAccess() {
+    const productName = document.getElementById('product-name-grant').innerText;
+    const address = document.getElementById('grantAddressSelect').value;
+    alert(`Access granted for ${productName} to ${address}`);
+  }
+
+  function revokeAccess() {
+    const productName = document.getElementById('product-name-revoke').innerText;
+    const address = document.getElementById('revokeAddressSelect').value;
+    alert(`Access revoked for ${productName} from ${address}`);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitoring of Ration Food in PDS - Settings</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Settings</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="products.html">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="repor.html">Reports</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="admi.html">Admin</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="settings.html">Settings <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login.html">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- Main Content -->
+<div class="container mt-4">
+  <h2>Settings</h2>
+  <p>Configure the monitoring of ration food settings below:</p>
+  <form>
+    <!-- Product Weights -->
+    <div class="card mb-4">
+      <div class="card-header">
+         Product Weights
+      </div>
+      <div class="card-body">
+        <div class="form-group row">
+          <label for="riceWeight" class="col-sm-4 col-form-label">Rice</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control" id="riceWeight" placeholder="Enter rice weight" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="wheatWeight" class="col-sm-4 col-form-label">Wheat</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control" id="wheatWeight" placeholder="Enter wheat weight" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="sugarWeight" class="col-sm-4 col-form-label">Sugar</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control" id="sugarWeight" placeholder="Enter sugar weight" required>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Notification Preferences -->
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-bell"></i> Notification Preferences
+      </div>
+      <div class="card-body">
+        <div class="form-group row">
+          <label for="emailAddress" class="col-sm-4 col-form-label">Email Address</label>
+          <div class="col-sm-8">
+            <input type="email" class="form-control" id="emailAddress" placeholder="Enter your email" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="phoneNumber" class="col-sm-4 col-form-label">Phone Number (SMS)</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="phoneNumber" placeholder="Enter your phone number" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Notification Type</label>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+              <label class="form-check-label" for="emailNotifications">
+                Email Notifications
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="smsNotifications">
+              <label class="form-check-label" for="smsNotifications">
+                SMS Notifications
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- System Updates -->
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-sync-alt"></i> System Updates
+      </div>
+      <div class="card-body">
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Auto Update</label>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="autoUpdateEnabled" checked>
+              <label class="form-check-label" for="autoUpdateEnabled">
+                Enable automatic updates
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="updateFrequency" class="col-sm-4 col-form-label">Update Frequency</label>
+          <div class="col-sm-8">
+            <select class="form-control" id="updateFrequency">
+              <option>Daily</option>
+              <option>Weekly</option>
+              <option>Monthly</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Settings</button>
+  </form>
+</div>
+<!-- Footer -->
+<footer class="footer mt-4">
+  <div class="container text-center">
+    <span class="text-muted">&copy; Monitoring of Ration Food in PDS</span>
+  </div>
+</footer>
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Custom Script -->
+<script src="custom1.js"></script>
+</body>
+</html>

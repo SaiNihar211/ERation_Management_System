@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitoring of Ration Food in PDS - Reports</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Report</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="products.html">Products</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="repor.html">Reports <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="admi.html">Admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login.html">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- Main Content -->
+<div class="container mt-4">
+  <h2>Reports</h2>
+  <p>Here you can generate and view various reports based on the collected data.</p>
+  
+  <!-- Date Range Filter -->
+<!-- Date Range Filter -->
+<div class="form-row mt-4">
+  <div class="form-group col-md-3">
+    <label for="fromDate">From Date</label>
+    <input type="date" class="form-control" id="fromDate">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="toDate">To Date</label>
+    <input type="date" class="form-control" id="toDate">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="barcode">Barcode/Product Code/RFID</label>
+    <input type="text" class="form-control" id="barcode">
+  </div>
+  <div class="form-group col-md-3 d-flex align-items-end">
+    <button class="btn btn-primary" onclick="filterReports()">Filter</button>
+  </div>
+</div>
+
+
+
+  <!-- Reports Container -->
+  <div class="reports-container mt-4"></div>
+</div>
+<button class="btn btn-primary mb-4" onclick="window.print()"><i class="fas fa-print"></i> Print Report</button>
+<!-- Footer -->
+<footer class="footer mt-4">
+  <div class="container text-center">
+    <span class="text-muted">&copy; Monitoring of Ration Food in PDS</span>
+  </div>
+</footer>
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Custom Script -->
+<script src="custom2.js"></script>
+</body>
+</html>

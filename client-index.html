@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitoring of Ration Food - Products</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Products</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="client-index.html">Products <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="noti.html">Settings </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login.html">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- Main Content -->
+<div class="container mt-4">
+  <h2 class="text-center">Products</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Rice</h5>
+          <img src="http://pluspng.com/img-png/sack-of-rice-png-a-2000.jpg" alt="Rice" class="img-fluid mb-3">
+          <img src="ricee.png" alt="Rice" class="img-fluid mb-3">
+          <p class="card-text">RF-ID: 9347979</p>
+          <p class="card-text">KG/Price: 50Rs</p>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#requestModal" onclick="setProduct('Rice', '9347979')">Request</button>
+          <button class="btn btn-danger" data-toggle="modal" data-target="#revokeModal" onclick="setProduct('Rice', '9347979')">Revoke</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Wheat</h5>
+          <img src="https://5.imimg.com/data5/WJ/NY/MY-4507063/whole-wheat-flour-500x500.jpg" alt="Wheat" class="img-fluid mb-3">
+          <img src="wheat.png" alt="wheat" class="img-fluid mb-3">
+          <p class="card-text">RF-ID: 7013734</p>
+          <p class="card-text">KG/Price: 40Rs</p>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#requestModal" onclick="setProduct('Wheat', '7013734')">Request</button>
+          <button class="btn btn-danger" data-toggle="modal" data-target="#revokeModal" onclick="setProduct('Wheat', '7013734')">Revoke</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Sugar</h5>
+          <img src="https://tse1.mm.bing.net/th?id=OIP.-BzF8vDgGIrGYLPZ4Wk1PwHaIN&pid=Api&P=0&h=220" alt="Sugar" class="img-fluid mb-3">
+          <img src="sugar.png" alt="sugar" class="img-fluid mb-3">
+          <p class="card-text">RF-ID: 7349510</p>
+          <p class="card-text">KG/Price: 30Rs</p>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#requestModal" onclick="setProduct('Sugar', '7349510')">Request</button>
+          <button class="btn btn-danger" data-toggle="modal" data-target="#revokeModal" onclick="setProduct('Sugar', '7349510')">Revoke</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Request Modal -->
+<div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="requestModalLabel">Select Address and Quantity</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <select id="requestAddress" class="form-control mb-3">
+          <option value="Address 1">Address 1</option>
+          <option value="Address 2">Address 2</option>
+          <option value="Address 3">Address 3</option>
+        </select>
+        <input type="number" id="requestQuantity" class="form-control" placeholder="Enter quantity in kg">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="confirmRequest()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Revoke Modal -->
+<div class="modal fade" id="revokeModal" tabindex="-1" role="dialog" aria-labelledby="revokeModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="revokeModalLabel">Select Address</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <select id="revokeAddress" class="form-control">
+          <option value="Address 1">Address 1</option>
+          <option value="Address 2">Address 2</option>
+          <option value="Address 3">Address 3</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="confirmRevoke()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Data Table -->
+<div class="container mt-4">
+  <h2 class="text-center">Request and Revoke History</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>RF-ID</th>
+          <th>Item Name</th>
+          <th>Quantity (kg)</th>
+          <th>Address</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="dataTable">
+        <!-- Dynamic rows will be added here -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer mt-4">
+  <div class="container text-center">
+    <span class="text-muted">&copy; Monitoring of Ration food in PDS</span>
+  </div>
+</footer>
+
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Custom Script -->
+<script>
+  let selectedProduct = '';
+  let selectedRFID = '';
+
+  function setProduct(product, rfid) {
+    selectedProduct = product;
+    selectedRFID = rfid;
+  }
+
+  function confirmRequest() {
+    const address = document.getElementById('requestAddress').value;
+    const quantity = document.getElementById('requestQuantity').value;
+    if (quantity > 0) {
+      $('#requestModal').modal('hide');
+      saveData(selectedRFID, selectedProduct, quantity, address, 'Requested');
+      alert(`Request successful for ${selectedProduct} to ${address} with quantity ${quantity} kg`);
+    } else {
+      alert('Please enter a valid quantity');
+    }
+  }
+
+  function confirmRevoke() {
+    const address = document.getElementById('revokeAddress').value;
+    $('#revokeModal').modal('hide');
+    saveData(selectedRFID, selectedProduct, 0, address, 'Revoked');
+    alert(`Revoke successful for ${selectedProduct} from ${address}`);
+  }
+
+  function saveData(rfid, product, quantity, address, status) {
+    const requestData = { rfid, product, quantity, address, status };
+    let data = JSON.parse(localStorage.getItem('requestData')) || [];
+    data.push(requestData);
+    localStorage.setItem('requestData', JSON.stringify(data));
+    loadTableData();
+  }
+
+  function loadTableData() {
+    const data = JSON.parse(localStorage.getItem('requestData')) || [];
+    const tableBody = document.getElementById('dataTable');
+    tableBody.innerHTML = '';
+    data.forEach(item => {
+      const row = `<tr>
+        <td>${item.rfid}</td>
+        <td>${item.product}</td>
+        <td>${item.quantity}</td>
+        <td>${item.address}</td>
+        <td>${item.status}</td>
+      </tr>`;
+      tableBody.innerHTML += row;
+    });
+  }
+
+  // Load table data on page load
+  document.addEventListener('DOMContentLoaded', loadTableData);
+</script>
+</body>
+</html>
+
